@@ -26,18 +26,18 @@ def show_result_dialog(ans1, ans2):
     st.balloons()
     score = 0
 
-    u_ans1 = ans1.strip().lower()
+     u_ans1 = ans1.strip().lower()
     u_ans2 = ans2.strip().lower()
 
     # ตรวจข้อ 1
-    if u_ans1 == "mango":
+    if u_ans1 == "apple":
         st.success("✅ ข้อ 1: ถูกต้อง")
         score += 1
     else:
         st.error(f"❌ ข้อ 1: ยังไม่ถูกต้อง (คุณตอบ '{u_ans1}')")
 
     # ตรวจข้อ 2
-    if u_ans2 == "gift":
+    if u_ans2 == "fish":
         st.success("✅ ข้อ 2: ถูกต้อง")
         score += 1
     else:
@@ -46,6 +46,7 @@ def show_result_dialog(ans1, ans2):
     # ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มตรวจข้อ 3, 4 ตรงนี้
 
     st.info(f"🏆 ได้คะแนนรวม: {score} คะแนน")
+
 
     if score == 2:
         st.success("🎉 You win!")
@@ -72,11 +73,11 @@ st.divider()
 
 # 3. ช่องรับคำตอบ (ใช้ value ผูกกับตัวแปรตรงๆ เพื่อสั่งเคลียร์ได้)
 ans1 = st.text_input(
-    "ข้อ 1: An `m a _ _ o` is a sweet, juicy tropical fruit with smooth skin, orange-yellow flesh. 🥭",
+    "ข้อ 1: An `a _ _ l e` a day keeps the doctor away. 🍎",
     value=st.session_state.ans1_val,
 )
 ans2 = st.text_input(
-    "ข้อ 2: A present given to someone without asking for money or payment back `g _ f t`. 🎁",
+    "ข้อ 2: Cats love to eat `f _ s h`. 🐟",
     value=st.session_state.ans2_val,
 )
 
@@ -85,7 +86,6 @@ st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2
 
 # ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มข้อ 3, 4 ตรงนี้
-
 
 # 4. ปุ่มส่งคำตอบ
 if "start" in st.session_state and not st.session_state.get("is_ended", False):
